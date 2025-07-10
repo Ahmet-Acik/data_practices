@@ -48,6 +48,20 @@ def search_in_string(text, pattern):
     """
     return re.findall(pattern, text)
 
+def search_in_lines(lines, pattern):
+    """
+    Search for a specific pattern in a list of lines.
+    
+    :param lines: List of lines to search within.
+    :param pattern: Regular expression pattern to search for.
+    :return: List of lines containing the pattern.
+    """
+    matches = []
+    for line in lines:
+        if re.search(pattern, line):
+            matches.append(line.strip())
+    return matches
+
 
 # Example usage:
 if __name__ == "__main__":
@@ -71,3 +85,15 @@ if __name__ == "__main__":
     text = "Python is a programming language. Python is widely used."
     string_matches = search_in_string(text, pattern)
     print(f"Matches in string: {string_matches}")
+    
+    # Search for a pattern in a list of lines
+    lines = [
+        "Python is great.",
+        "Java is also popular.",
+        "Python and Java are both programming languages."
+    ]
+    line_matches = search_in_lines(lines, pattern)
+    print(f"Matches in lines:")
+    for line in line_matches:
+        print(line)
+   
