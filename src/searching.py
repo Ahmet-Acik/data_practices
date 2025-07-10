@@ -38,6 +38,17 @@ def search_in_directory(directory_path, pattern):
                     results[file] = matches
     return results
 
+def search_in_string(text, pattern):
+    """
+    Search for a specific pattern in a string.
+    
+    :param text: String to search within.
+    :param pattern: Regular expression pattern to search for.
+    :return: List of matches found in the string.
+    """
+    return re.findall(pattern, text)
+
+
 # Example usage:
 if __name__ == "__main__":
     # Search for a pattern in a specific file
@@ -56,3 +67,7 @@ if __name__ == "__main__":
         print(f"{file}:")
         for line in lines:
             print(f"  {line}")
+    # Search for a pattern in a string
+    text = "Python is a programming language. Python is widely used."
+    string_matches = search_in_string(text, pattern)
+    print(f"Matches in string: {string_matches}")
